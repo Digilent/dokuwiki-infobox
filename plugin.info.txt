@@ -1,0 +1,7 @@
+base digilentinfobox
+author Sam Kristoff
+email admin@digilent.com
+date 04-2016
+name Digilent Infobox
+desc Dokuwiki Infobox by Digilent
+url www.github.com/digilent/dokuwiki-infobox

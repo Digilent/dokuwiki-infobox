@@ -1,0 +1,28 @@
+.infobox
+{
+	margin-bottom: 15px;
+	border-style: solid;
+    border-width: 1px;
+	border-color: #DDE4E3;
+}
+
+.infobox .infobox-title
+{
+	font-size: 1.5em;
+	border-bottom: 1px solid #DDE4E3;
+	text-align: center;
+}
+
+.infobox .section-header
+{
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	background-color: #DDE4E3;
+}
+
+.infobox .key
+{
+	font-size: 1em;
+	font-weight: bold;
+}
