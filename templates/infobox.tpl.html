@@ -1,36 +1,61 @@
 <!--Infobox-->
-<div class="infobox col-md-3 pull-right">
+<div class="infobox">
+	<!-- BEGIN STOREBUTTON -->
+	<a href="{URL}" class="btn btn-lg primary-btn" role="button">{NAME}</a>
+	<!-- END STOREBUTTON -->
+	
+	<!-- BEGIN REFMANBUTTON -->
+	<a href="{URL}" class="btn tn-lg secondary-btn" role="button">{NAME}</a>
+	<!-- END REFMANBUTTON -->
+	
+	<!-- BEGIN SUPPORTBUTTON -->
+	<a href="{URL}" class="btn tn-lg secondary-btn" role="button">{NAME}</a>
+	<!-- END SUPPORTBUTTON -->
+	
 	<!-- BEGIN TITLEBLOCK -->
-	<div class="infobox-title">
-		{TITLE}
-	</div>
-	<!-- END TITLEBLOCK -->
+	<div class="infobox-table">
+		<div class="infobox-title">
+			{TITLE}
+		</div>
+		<div class="infobox-subtitle">
+			{SUBTITLE}
+		</div>
+		<!-- END TITLEBLOCK -->
 
-	<!-- BEGIN SECTION --> 
-	<div>
-		<!-- BEGIN HEADER --> 
-		<div class="section-header col-md-12">
-			{VALUE}
-		</div>	
-		<!-- END HEADER --> 
-		<!-- BEGIN NAMEVALUEROW --> 
-		<div class="key col-md-6">
-			{NAME}
+		<!-- BEGIN SECTION -->
+		<div class="section">
+			<!-- BEGIN HEADER -->
+			<div class="section-header">
+				{VALUE}
+			</div>
+			<!-- END HEADER -->
+			
+			<!-- BEGIN FULLROW -->
+			<div class="full-row">
+				{VALUE}
+			</div>
+			<!-- END FULLROW -->
+			
+			<!-- BEGIN NAMEVALUEROW -->
+			<div class="key-value">
+				<div class="key">
+					{NAME}
+				</div>
+				<div class="value">
+					{VALUE}
+				</div>
+			</div>
+			<!-- END NAMEVALUEROW -->
+			
+			<!-- BEGIN BULLETROW -->
+			<div class="bullet-row">
+				<ul class="bullet-ul">
+					<li class="bullet-li">{VALUE}</li>
+				</ul>
+			</div>
+			<!-- END BULLETROW -->
 		</div>
-		<div class="value col-md-6">
-			{VALUE}
-		</div>
-		<!-- END NAMEVALUEROW -->
-		<!-- BEGIN FULLROW --> 		
-		<div class="full-row col-md-12">
-			{VALUE}
-		</div>
-		<!-- END FULLROW -->
-		<!-- BEGIN BULLETROW --> 		
-		<div class="bullet-row col-md-12">
-			<ul><li>{VALUE}</li></ul>
-		</div>
-		<!-- END BULLETROW --> 	
-	</div>
-	<!-- END SECTION --> 
-</div><!--End Infobox-->
+		<!-- END SECTION -->
+	</div> 
+</div>
+<!--End Infobox-->

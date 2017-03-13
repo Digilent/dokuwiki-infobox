@@ -38,7 +38,12 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
     }	
 	
 	//Store user variables to parse in one pass
+	protected $storeUrl = '';
+	protected $refManUrl = '';
+	protected $supportUrl = '';
+	protected $primaryImage = '';
 	protected $title = '';
+	protected $subtitle = '';
 	protected $data = '';
 	protected $currentHeader = '';
 	protected $fullrowCount = 0;
@@ -69,14 +74,42 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 				break;
 			case DOKU_LEXER_MATCHED :					
 				//Find The Token And Value (Before '=' remove white space, convert to lower case).
-				$tokenDiv = strpos($match, '=');												//Find Token Value Divider ('=')
-				$prettyToken = trim(substr($match, 1, ($tokenDiv - 1)));			//Everything Before '=', Remove White Space
+				$tokenDiv = strpos($match, '=');											//Find Token Value Divider ('=')
+				$prettyToken = trim(substr($match, 1, ($tokenDiv - 1)));					//Everything Before '=', Remove White Space
 				$token = strtolower($prettyToken);											//Convert To Lower Case
-				$value = substr($match, ($tokenDiv + 1));									//Everything after '='
+				$value = trim(substr($match, ($tokenDiv + 1)));									//Everything after '='
 				switch($token)
-				{
+				{					
+					case 'store page':						
+						$this->storeUrl = $value;
+						break;
+					case 'manual':
+						$value = str_replace(array("[", "]"), "", $value);	//Remove Brackets
+						$value = str_replace(array("/"), ":", $value);		//Replace '/' with ':'
+						if(getNS($value) != "")
+						{
+							//Absolute Path
+							$this->refManUrl = wl($value);
+						}
+						else
+						{	
+							//Relative Path
+							global $ID;
+							resolve_pageid(getNS($ID), $value);		//Update value with resolved page id
+							$this->refManUrl = wl($value);
+						}
+						break;
+					case 'support':						
+						$this->supportUrl = $value;
+						break;
+					case 'image':						
+						$this->primaryImage = $value;
+						break;
 					case 'title':						
 						$this->title = $value;
+						break;
+					case 'subtitle':						
+						$this->subtitle = $value;
 						break;
 					case 'header':						
 						$this->data[$value] = array();
@@ -106,13 +139,47 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 				$infoboxTpl = new HTML_Template_IT(dirname(__FILE__) . "/templates");
 				$infoboxTpl->loadTemplatefile("infobox.tpl.html", true, true);
 				
+				//Set Store Button If Specified				
+				if($this->storeUrl != '')
+				{
+					$infoboxTpl->setCurrentBlock("STOREBUTTON");
+					$infoboxTpl->setVariable("NAME", "Store");	
+					$infoboxTpl->setVariable("URL", $this->storeUrl);
+					$infoboxTpl->parseCurrentBlock("STOREBUTTON");
+				}
+				
+				//Set Ref Manual Button If Specified				
+				if($this->refManUrl != '')
+				{
+					$infoboxTpl->setCurrentBlock("REFMANBUTTON");
+					$infoboxTpl->setVariable("NAME", "Reference Manual");	
+					$infoboxTpl->setVariable("URL", $this->refManUrl);
+					$infoboxTpl->parseCurrentBlock("REFMANBUTTON");
+				}
+				
+				//Set Support Button If Specified				
+				if($this->supportUrl != '')
+				{
+					$infoboxTpl->setCurrentBlock("SUPPORTBUTTON");
+					$infoboxTpl->setVariable("NAME", "Technical Support");	
+					$infoboxTpl->setVariable("URL", $this->supportUrl);
+					$infoboxTpl->parseCurrentBlock("SUPPORTBUTTON");
+				}
+					
 				//Set Title If Specified
 				if($this->title != '')
 				{
 					$infoboxTpl->setCurrentBlock("TITLEBLOCK");
 					$infoboxTpl->setVariable("TITLE", $this->title);
+					if($this->subtitle)
+					{
+						$infoboxTpl->setVariable("SUBTITLE", $this->subtitle);
+					}
+					$infoboxTpl->setVariable("TITLE", $this->title);
 					$infoboxTpl->parseCurrentBlock("TITLEBLOCK");
 				}
+				
+				
 				
 				//Iterate over sections
 				foreach($this->data as $header => $section)
