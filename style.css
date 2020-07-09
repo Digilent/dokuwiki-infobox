@@ -45,20 +45,20 @@
 {
 	vertical-align: top;
 	margin-left: 5%;
-	display: inline-block;	
+	display: inline-block;
 	width: 35%;
 	font-size: 1em;
-	font-weight: bold; 
+	font-weight: bold;
 }
 
 .infobox .section .key-value .value
-{	
+{
 	display: inline-block;
-	width: 55%; 
+	width: 55%;
 }
 
 .infobox .bullet-row
-{		
+{
 	margin-left: 4%;
 }
 
@@ -67,9 +67,9 @@
 	color: #333 !important;
 	margin: 0;
 }
-	
+
 .infobox .bullet-li
-{	
+{
 	color: #333 !important;
 	margin: 0;
 }
@@ -81,9 +81,9 @@
     background-color: #62a945;
     color: #FFF;
     border: 2px solid #62a945;
-    font-family: brandon-grotesque,Raleway,sans-serif;    
+    font-family: brandon-grotesque,Raleway,sans-serif;
     text-align: center;
-    text-decoration: none;      
+    text-decoration: none;
     cursor: pointer;
 	margin-bottom: 8px;
 }
@@ -91,24 +91,24 @@
 .infobox .primary-btn:hover
 {
     background-color: #62a945;
-    color: #FFF; 
+    color: #FFF;
 }
 
 .infobox .secondary-btn
 {
-	width: 49%; 
+	width: 49%;
     background-color: #4d8c40;
     color: #FFF;
     border: 2px solid #4d8c40;
-    font-family: brandon-grotesque,Raleway,sans-serif;    
+    font-family: brandon-grotesque,Raleway,sans-serif;
     text-align: center;
-    text-decoration: none;      
+    text-decoration: none;
     cursor: pointer;
-	margin-bottom: 8px; 
+	margin-bottom: 8px;
 }
 
 .infobox .secondary-btn:hover
 {
 	background-color: #4d8c40;
-    color: #FFF; 	
+    color: #FFF;
 }
