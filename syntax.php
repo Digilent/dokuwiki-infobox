@@ -137,20 +137,24 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 						$this->currentHeader = $value;						
 						break;
 					case 'full row':						
-						var_dump("aaaaaaaa");
-						var_dump($this->data);
-						/*
 						if (!is_array($this->data)) {
 							$this->data = array();
 						}
 
 						if (!is_array($this->data[$this->currentHeader])) {
 							$this->data[$this->currentHeader] = array();
-						} */
+						}
 						$this->data[$this->currentHeader]["fullrow" . $this->fullRowCount] = substr(p_render('xhtml',p_get_instructions($value), $info, ""), 4, -5);
 						$this->fullRowCount++;
 						break;
 					case 'bullet':
+						if (!is_array($this->data)) {
+							$this->data = array();
+						}
+
+						if (!is_array($this->data[$this->currentHeader])) {
+							$this->data[$this->currentHeader] = array();
+						}
 						$this->data[$this->currentHeader]["bullet" . $this->bulletCount] = substr(p_render('xhtml',p_get_instructions($value), $info, ""), 4, -5);
 						$this->bulletCount++;
 						break;					
