@@ -1,7 +1,7 @@
 base digilentinfobox
 author Sam Kristoff
 email admin@digilent.com
-date 04-2016
+date 11-2022
 name Digilent Infobox
 desc Dokuwiki Infobox by Digilent
 url www.github.com/digilent/dokuwiki-infobox
