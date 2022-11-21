@@ -45,6 +45,7 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 	protected $storeUrl = '';
 	protected $gettingStartedUrl = '';
 	protected $refManUrl = '';
+	protected $refManName = '';
 	protected $supportUrl = '';
 	protected $primaryImage = '';
 	protected $title = '';
@@ -101,6 +102,14 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 						$this->gettingStartedUrl = $value;
 						break;
 					case 'manual':
+						// If value starts with https treat it as an external link, otherwise treat it as an internal link
+						if(substr($value, 0, 4) == "http")
+						{
+							$this->refManUrl = $value;
+							break;
+						}
+
+						if(getNS($value) != "")
 						$value = str_replace(array("[", "]"), "", $value);	//Remove Brackets
 						$value = str_replace(array("/"), ":", $value);		//Replace '/' with ':'
 						if(getNS($value) != "")
@@ -115,6 +124,9 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 							resolve_pageid(getNS($ID), $value, $exists, "", false);		//Update value with resolved page id
 							$this->refManUrl = wl($value);
 						}
+						break;
+					case 'manual name':						
+						$this->refManName = $value;
 						break;
 					case 'support':						
 						$this->supportUrl = $value;
@@ -189,8 +201,7 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 					//$output .= "<div id='" . $this->product . "'>" ;					
 					$output .= "<div id='digilent-infobox' class='infobox digilent-infobox hidden' category='" . $this->category . "' product='" . $this->product . "' layout='" . rawurlencode($this->layout) . "'>Infobox Placeholder</div>";
 					$output .= "</div>" ; 
-					$output .= "</div>" ;
-	 
+					$output .= "</div>" ;	 
 				}
 				else 
 				{
@@ -221,8 +232,15 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 					//Set Ref Manual Button If Specified				
 					if($this->refManUrl != '')
 					{
+						//Set default name if none is specified
+						if($this->refManName == '') 
+						{
+							$this->refManName = 'Reference Manual';
+						}
+
+						// URL
 						$infoboxTpl->setCurrentBlock("REFMANBUTTON");
-						$infoboxTpl->setVariable("NAME", "Reference Manual");	
+						$infoboxTpl->setVariable("NAME", $this->refManName);	
 						$infoboxTpl->setVariable("URL", $this->refManUrl);
 						$infoboxTpl->parseCurrentBlock("REFMANBUTTON");
 					}
@@ -303,6 +321,7 @@ class syntax_plugin_digilentinfobox extends DokuWiki_Syntax_Plugin
 				$this->storeUrl = '';
 				$this->gettingStartedUrl = '';
 				$this->refManUrl = '';
+				$this->refManName = '';
 				$this->supportUrl = '';
 				$this->primaryImage = '';
 				$this->title = '';
