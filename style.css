@@ -1,35 +1,30 @@
 .dpdc-content .hidden {
-    display: none;
+	display: none;
 }
 
-.digilent-infobox
-{
+.digilent-infobox {
 	width: 35%;
 	float: right;
 	margin-left: 15px;
 	margin-bottom: 15px;
 }
 
-.digilent-infobox .infobox-table
-{
+.digilent-infobox .infobox-table {
 	border: 1px solid #DDE4E3;
 }
 
-.digilent-infobox .infobox-title
-{
+.digilent-infobox .infobox-title {
 	font-size: 1.5em;
 	text-align: center;
 }
 
-.digilent-infobox .infobox-subtitle
-{
+.digilent-infobox .infobox-subtitle {
 	text-align: center;
 	margin-bottom: 10px;
 	margin-bottom: 5px;
 }
 
-.digilent-infobox .section-header
-{
+.digilent-infobox .section-header {
 	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
@@ -45,85 +40,73 @@
 }
 
 
-.digilent-infobox .section .key-value .key
-{
+.digilent-infobox .section .key-value .key {
 	vertical-align: top;
 	margin-left: 5%;
-	display: inline-block;	
+	display: inline-block;
 	width: 35%;
 	font-size: 1em;
-	font-weight: bold; 
+	font-weight: bold;
 }
 
-.digilent-infobox .section .key-value .value
-{	
+.digilent-infobox .section .key-value .value {
 	display: inline-block;
-	width: 55%; 
+	width: 55%;
 }
 
-.digilent-infobox .bullet-row
-{		
+.digilent-infobox .bullet-row {
 	margin-left: 4%;
 }
 
-.digilent-infobox .bullet-ul
-{
+.digilent-infobox .bullet-ul {
 	color: #333 !important;
 	margin: 0;
 }
-	
-.digilent-infobox .bullet-li
-{	
+
+.digilent-infobox .bullet-li {
 	color: #333 !important;
 	margin: 0;
 }
 
 
-.digilent-infobox .primary-btn
-{
+.digilent-infobox .primary-btn {
 	width: 100%;
-    background-color: #62a945;
-    color: #FFF;
-    border: 2px solid #62a945;
-    font-family: brandon-grotesque,Raleway,sans-serif;    
-    text-align: center;
-    text-decoration: none;      
-    cursor: pointer;
+	background-color: #62a945;
+	color: #FFF;
+	border: 2px solid #62a945;
+	font-family: brandon-grotesque, Raleway, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
 	margin-bottom: 8px;
 }
 
-.digilent-infobox .primary-btn:hover
-{
-    background-color: #62a945;
-    color: #FFF; 
+.digilent-infobox .primary-btn:hover {
+	background-color: #62a945;
+	color: #FFF;
 }
 
-.digilent-infobox .secondary-btn
-{
-	width: 49%; 
-    background-color: #4d8c40;
-    color: #FFF;
-    border: 2px solid #4d8c40;
-    font-family: brandon-grotesque,Raleway,sans-serif;    
-    text-align: center;
-    text-decoration: none;      
-    cursor: pointer;
-	margin-bottom: 8px; 
-}
-
-.digilent-infobox .secondary-btn:hover
-{
+.digilent-infobox .secondary-btn {
+	width: 49%;
 	background-color: #4d8c40;
-    color: #FFF; 	
+	color: #FFF;
+	border: 2px solid #4d8c40;
+	font-family: brandon-grotesque, Raleway, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	margin-bottom: 8px;
 }
 
-.digilent-infobox .fileIcon
-{
-    width: 25px;    
+.digilent-infobox .secondary-btn:hover {
+	background-color: #4d8c40;
+	color: #FFF;
 }
 
-.digilent-infobox .fileIcon
-{
-    width: 25px;    
+.digilent-infobox .fileIcon {
+	width: 25px;
 }
 
+.digilent-infobox .fileIcon {
+	width: 25px;
+}
