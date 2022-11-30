@@ -37,6 +37,12 @@
 
 .digilent-infobox .key-value {
 	width: 100%;
+	/*border-bottom: 1px solid #EEEEEE;*/
+
+}
+
+.key-value:hover {
+	background-color: #EEEEEE;
 }
 
 
